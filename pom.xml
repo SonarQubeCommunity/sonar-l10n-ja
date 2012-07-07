@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.codehaus.sonar-plugins</groupId>
+    <artifactId>parent</artifactId>
+    <version>13</version>
+    <relativePath>../../parent</relativePath>
+  </parent>
+
+  <groupId>org.codehaus.sonar-plugins.l10n</groupId>
+  <artifactId>sonar-l10n-ja-plugin</artifactId>
+  <packaging>sonar-plugin</packaging>
+  <version>1.0-SNAPSHOT</version>
+
+  <name>L10n :: Japanese Pack</name>
+  <inceptionYear>2012</inceptionYear>
+
+  <licenses>
+    <license>
+      <name>GNU LGPL 3</name>
+      <url>http://www.gnu.org/licenses/lgpl.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <properties>
+    <sonar.pluginClass>org.sonar.plugins.l10n.JapanesePackPlugin</sonar.pluginClass>
+    <sonar.version>3.1</sonar.version>
+    <license.owner>Yoshiyuki NISHINAKA</license.owner>
+    <license.mailto>yoshiyuki.nishinaka@gmail.com</license.mailto>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.codehaus.sonar</groupId>
+      <artifactId>sonar-plugin-api</artifactId>
+      <version>${sonar.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.sonar</groupId>
+      <artifactId>sonar-testing-harness</artifactId>
+      <version>${sonar.version}</version>
+    </dependency>
+  </dependencies>
+
+  <developers>
+    <developer>
+      <id>nisinaka</id>
+      <name>Yoshiyuki NISHINAKA</name>
+    </developer>
+  </developers>
+
+  <build>
+    <testResources>
+      <testResource>
+        <directory>src/test/resources</directory>
+        <filtering>true</filtering>
+      </testResource>
+    </testResources>
+
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.sonar</groupId>
+        <artifactId>sonar-packaging-maven-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+          <basePlugin>l10nen</basePlugin>
+          <pluginName>Japanese Pack</pluginName>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>native2ascii-maven-plugin</artifactId>
+        <version>1.0-beta-1</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>native2ascii</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <scm>
+    <connection>scm:svn:http://svn.codehaus.org/sonar-plugins/trunk/l10n/ja</connection>
+    <developerConnection>scm:svn:https://svn.codehaus.org/sonar-plugins/trunk/l10n/ja</developerConnection>
+    <url>http://svn.sonar-plugins.codehaus.org</url>
+  </scm>
+
+</project>
