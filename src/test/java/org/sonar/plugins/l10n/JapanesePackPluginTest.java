@@ -19,14 +19,35 @@
  */
 package org.sonar.plugins.l10n;
 
-import org.sonar.api.SonarPlugin;
+import org.junit.Ignore;
+import org.junit.Test;
 
-import java.util.Collections;
-import java.util.List;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
+import static org.sonar.test.i18n.I18nMatchers.isBundleUpToDate;
 
-public final class JapanesePackPlugin extends SonarPlugin {
+public class JapanesePackPluginTest {
 
-  public List getExtensions() {
-    return Collections.emptyList();
+  private static final String SONAR_VERSION = "3.0";
+
+  @Test
+  @Ignore("Missing translations")
+  public void coreBundleShouldBeUpToDate() {
+    assertThat("core_ja.properties", isBundleUpToDate(SONAR_VERSION));
+  }
+
+  @Test
+  public void gwtBundleShouldBeUpToDate() {
+    assertThat("gwt_ja.properties", isBundleUpToDate(SONAR_VERSION));
+  }
+
+  @Test
+  public void squidJavaBundleShouldBeUpToDate() {
+    assertThat("squidjava_ja.properties", isBundleUpToDate(SONAR_VERSION));
+  }
+
+  @Test
+  public void test_plugin_metadata() {
+    assertThat(new JapanesePackPlugin().getExtensions().size(), is(0));
   }
 }
