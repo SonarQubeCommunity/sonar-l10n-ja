@@ -28,10 +28,9 @@ import static org.sonar.test.i18n.I18nMatchers.isBundleUpToDate;
 
 public class JapanesePackPluginTest {
 
-  private static final String SONAR_VERSION = "3.0";
+  private static final String SONAR_VERSION = "3.1";
 
   @Test
-  @Ignore("Missing translations")
   public void coreBundleShouldBeUpToDate() {
     assertThat("core_ja.properties", isBundleUpToDate(SONAR_VERSION));
   }
