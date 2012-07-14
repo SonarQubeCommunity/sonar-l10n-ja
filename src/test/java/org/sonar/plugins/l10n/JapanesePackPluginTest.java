@@ -19,7 +19,6 @@
  */
 package org.sonar.plugins.l10n;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.is;
