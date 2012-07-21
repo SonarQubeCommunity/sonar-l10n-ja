@@ -1,0 +1,32 @@
+<p>
+このインスタンスメソッドは、<code>this.getClass()</code> で同期化しています。
+このクラスがサブクラス化されるなら、サブクラスはおそらく意図したことではないサブクラスのためにクラスオブジェクトで同期化します。
+たとえば、java.awt.Label の以下のコードを検討してください。
+</p>
+<blockquote><pre>
+private static final String base = "label";
+private static int nameCounter = 0;
+
+String constructComponentName() {
+    synchronized (getClass()) {
+        return base + nameCounter++;
+    }
+}
+</pre></blockquote>
+<p>
+<code>Label</code> のサブクラスは同じサブクラスで同期化しません。データレースを生じさせます。
+その代わりに、このコードは、<code>Label.class</code> で同期化するべきです。
+</p>
+<blockquote><pre>
+private static final String base = "label";
+private static int nameCounter = 0;
+
+String constructComponentName() {
+    synchronized (Label.class) {
+        return base + nameCounter++;
+    }
+}
+</pre></blockquote>
+<p>
+Jason Mehrens によって寄贈されたバグパターン
+</p>

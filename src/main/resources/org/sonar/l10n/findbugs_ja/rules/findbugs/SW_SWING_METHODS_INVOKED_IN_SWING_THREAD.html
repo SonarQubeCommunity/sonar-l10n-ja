@@ -1,0 +1,8 @@
+<p>
+(<a href="http://web.archive.org/web/20090526170426/http://java.sun.com/developer/JDCTechTips/2003/tt1208.html">From JDC Tech Tip</a>)<br>
+に解説されているとおり、Swing のメソッド、<code>show</code> メソッド、<code>setVisible</code> メソッド、<code>pack</code> メソッドは、フレームのために関連したピアを作成します。
+ピアの作成で、システムはイベントディスパッチスレッドを作成します。
+これが問題になることがあります。なぜなら <code>pack</code> メソッドと <code>validate</code> メソッドがまだ処理中でもイベントディスパッチスレッドがリスナに通知できるからです。
+この状況は、2つのスレッドが Swing コンポーネントにアクセスする可能性があり、デッドロックや、その他のスレッドに関する問題になる可能性がある重大な欠陥です。
+<code>pack</code> メソッドの呼び出しはコンポーネントを実体化させます。実体化しているときに、イベントディスパッチスレッドがリスナへの通知を開始する可能性があります。
+</p>

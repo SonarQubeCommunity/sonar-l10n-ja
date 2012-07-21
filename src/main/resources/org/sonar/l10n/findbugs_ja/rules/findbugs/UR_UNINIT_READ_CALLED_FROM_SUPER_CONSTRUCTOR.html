@@ -1,0 +1,32 @@
+<p>
+このメソッドは、スーパークラスのコンストラクタで呼びされています。この時点では、クラスのフィールドはまだ初期化されていません。
+</p>
+<p>
+これはたくさんの具象クラスを作るためです。以下のクラスを検討してください。
+</p>
+<blockquote><pre>
+abstract class A {
+    int hashCode;
+    abstract Object getValue();
+    
+    A() {
+        hashCode = getValue().hashCode();
+    }
+}
+
+class B extends A {
+    Object value;
+
+    B(Object v) {
+        this.value = v;
+    }
+
+    Object getValue() {
+        return value;
+    }
+}
+</pre></blockquote>
+<p>
+<code>B</code> が構築されるとき、<code>B</code> のコンストラクタが <code>value</code> に値を設定する前に、<code>A</code> クラスのコンストラクタが呼び出されます。
+したがって、<code>A</code> のコンストラクタが <code>getValue</code> を呼び出すとき、<code>value</code> の初期化されていない値が読み出されます。
+</p>

@@ -1,0 +1,10 @@
+<p>
+このコードは、サーブレットのエラーページに <code>HttpServletResponse.sendError</code> を使用して HTTP パラメータをそのまま書き込んでいます。
+信頼できない入力を返すことは反射型 XSS(クロスサイトスクリプティング) 脆弱性を可能にします。<br>
+詳細は、<a href="http://en.wikipedia.org/wiki/Cross-site_scripting">http://en.wikipedia.org/wiki/Cross-site_scripting</a> を参照してください。
+</p>
+<p>
+FindBugs は、XSS のもっとも露骨で自明なケースだけを探します。
+FindBugs が何かを発見したならほぼ間違いなく FindBugs が報告しないより多くの脆弱性があるでしょう。
+XSS を心配するなら、商用の静的解析ツールかペネトレーションテストツールの使用を真剣に検討するべきです。
+</p>

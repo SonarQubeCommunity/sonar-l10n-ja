@@ -1,0 +1,14 @@
+<p>
+<code>toString</code> メソッドを呼び出すために、プリミティブ型のラッパクラスのインスタンスを作成しています。
+それよりもプリミティブ値を引数にとる static な <code>toString</code> メソッドを使用した方が効率的です。
+</p>
+  <table>
+     <tr><th>置換前</th><th>置換後</th></tr>
+     <tr><td>new Integer(1).toString()</td><td>Integer.toString(1)</td></tr>
+     <tr><td>new Long(1).toString()</td><td>Long.toString(1)</td></tr>
+     <tr><td>new Float(1.0).toString()</td><td>Float.toString(1.0)</td></tr>
+     <tr><td>new Double(1.0).toString()</td><td>Double.toString(1.0)</td></tr>
+     <tr><td>new Byte(1).toString()</td><td>Byte.toString(1)</td></tr>
+     <tr><td>new Short(1).toString()</td><td>Short.toString(1)</td></tr>
+     <tr><td>new Boolean(true).toString()</td><td>Boolean.toString(true)</td></tr>
+  </table>

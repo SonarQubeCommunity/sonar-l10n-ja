@@ -1,0 +1,13 @@
+<p>
+クラスは、初期化中にサブクラスを積極的に使用しています。サブクラスはこの時点では、まだ初期化されていません。<br>
+たとえば、以下のコードにおいて、<code>foo</code> は null です。
+</p>
+<blockquote><pre>
+public class CircularClassInitialization {
+    static class InnerClassSingleton extends CircularClassInitialization {
+        static InnerClassSingleton singleton = new InnerClassSingleton();
+    }
+    
+    static CircularClassInitialization foo = InnerClassSingleton.singleton;
+}
+</pre></blockquote>

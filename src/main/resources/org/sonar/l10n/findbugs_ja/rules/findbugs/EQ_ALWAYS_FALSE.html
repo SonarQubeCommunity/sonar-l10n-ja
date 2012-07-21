@@ -1,0 +1,15 @@
+<p>
+このクラスでは、常に false を返す <code>equlas</code> メソッドを定義しています。
+これは、オブジェクトがそれ自身と等価ではないことを意味していて、このクラスの有用な Map や Set を作成できません。
+より根本的に、<code>equals</code> メソッドの要件の一つである反射性を満たしていないことになります。
+</p>
+<p>
+おそらく意図されたことは、オブジェクトはそれ自身と等価であるというオブジェクト同一性です。
+これは <code>Object</code> クラスから継承される振る舞いです。
+異なるスーパークラスから継承される <code>equals</code> メソッドをオーバーライドする必要があるなら以下のようなコードが使えます。
+</p>
+<blockquote><pre>
+public boolean equals(Object o) {
+    return this == o;
+}
+</pre></blockquote>

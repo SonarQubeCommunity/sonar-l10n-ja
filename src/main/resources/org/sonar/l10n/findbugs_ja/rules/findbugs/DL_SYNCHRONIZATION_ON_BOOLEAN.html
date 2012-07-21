@@ -1,0 +1,17 @@
+<p>
+<code>Boolean</code> のようなボクシングされたプリミティブ型の定数で同期化しています。
+</p>
+<blockquote><pre>
+private static Boolean inited = Boolean.FALSE;
+
+synchronized(inited) { 
+    if (!inited) {
+        init();
+        inited = Boolean.TRUE;
+    }
+}
+</pre></blockquote>
+<p>
+通常は2つの <code>Boolean</code> オブジェクトだけが存在しています。
+このコードは他の無関係なコードと同じオブジェクトで同期化している可能性があるので、無応答やデッドロックの原因になります。
+</p>

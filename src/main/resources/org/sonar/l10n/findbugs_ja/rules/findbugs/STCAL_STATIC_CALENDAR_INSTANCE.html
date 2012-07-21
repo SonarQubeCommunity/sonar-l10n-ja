@@ -1,0 +1,7 @@
+<p>
+たとえ JavaDoc にそれに関する手がかりがないとしても、Calendar はマルチスレッドでの使用は本質的に安全でありません。
+正しい同期化をしないでスレッド境界の向こうで1つのインスタンスを共有することは、アプリケーションの誤動作になります。
+JDK 5.0に比べて JDK 1.4 の方が問題が表面化するように思われ、おそらく sun.util.calendar.BaseCalendar.getCalendarDateFromFixedDate() の ArrayIndexOutOfBoundsExceptions や IndexOutOfBoundsExceptions がランダムに発生します。
+直列化問題も経験するかもしれません。インスタンスフィールドを使うことを推奨します。<br>
+詳細については、<a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6231579">Sun Bug #6231579</a> や <a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6178997">Sun Bug #6178997</a> を参照してください。
+</p>

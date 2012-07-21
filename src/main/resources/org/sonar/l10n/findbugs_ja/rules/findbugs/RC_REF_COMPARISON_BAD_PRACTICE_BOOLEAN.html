@@ -1,0 +1,7 @@
+<p>
+このメソッドは、== または != 演算子を使用して2つの Boolean 値を比較しています。
+通常は2つの Boolean 値 (<code>Boolean.TRUE</code> と <code>Boolean.FALSE</code>) だけですが、
+<code>new Boolean(b)</code> コンストラクタを使用して他の Boolean オブジェクトを作成する可能性があります。
+そのようなオブジェクトを回避することは最高です。
+しかし、それらが存在するなら、Boolean オブジェクトの等価性をチェックするために <code>.equals(...)</code> ではなく == または != を使用しているなら異なる結果をもたらします。
+</p>

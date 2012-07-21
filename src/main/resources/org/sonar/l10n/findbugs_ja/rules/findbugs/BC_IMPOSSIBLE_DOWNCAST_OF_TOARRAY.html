@@ -1,0 +1,18 @@
+<p>
+このコードは、以下のように、<code>Object[]</code> より特定の型のコレクションで <code>toArray</code> メソッドを呼び出す結果をキャストしています。
+</p>
+<blockquote><pre>
+String[] getAsArray(Collection&lt;String&gt; c) {
+  return (String[]) c.toArray();
+}
+</pre></blockquote>
+<p>
+これは通常、ClassCastException をスローして失敗します。
+ほとんどすべてのコレクションの <code>toArray</code> メソッドは、<code>Object[]</code> を返します。
+Collection オブジェクトは宣言された総称型コレクションの参照がないので、本当に何もできません。
+コレクションから特定の型の配列を得る正しい方法は、<code>c.toArray(new String[]);</code> または <code>c.toArray(new String[c.size()]);</code> (後者はわずかにより効率的です) を使うことです。
+これに対する1つの共通の知られている例外があります。
+<code>Arrays.asList(...)</code>によって返されるリストの <code>toArray()</code> メソッドは、共変な配列を返します。
+たとえば、<code>Arrays.asArray(new String[] { "a" }).toArray()</code> は <code>String []</code> を返します。
+FindBugs はそのようなケースを検出して抑止しようとしますが、いくつか見落とすかもしれません。
+</p>

@@ -1,0 +1,8 @@
+<p>
+このメソッドには分岐するのかどうかに関係なく、制御フローが同じか次の行へと続く、役に立たない制御フロー文があります。<br>
+多くの場合、不注意に <code>if</code> 文の本体を空文を使用したことが原因になります。
+</p>
+<blockquote><pre>
+if (argv.length == 1);
+    System.out.println("Hello, " + argv[0]);
+</pre></blockquote>

@@ -1,0 +1,29 @@
+<p>
+OpenJDK は、潜在的非互換性を取り入れました。特に、java.util.logging.Logger は振る舞いが変更されています。
+強参照を使用する代わりに、現在、内部的に弱参照を使用しています。
+それは理にかなった変更ですが、残念ながらいくつかのコードは古い振る舞いに依存しています。
+ロガーの構成を変更するとき、ロガーへの参照を捨てます。
+つまり、ガベージコレクタはそのメモリを回収できます。それは、ロガーの構成が失われることを意味します。
+たとえば、以下を検討してください。
+</p>
+<blockquote><pre>
+public static void initLogging() throws Exception {
+    Logger logger = Logger.getLogger("edu.umd.cs");
+    logger.addHandler(new FileHandler()); // ロガーの構成の変更
+    logger.setUseParentHandlers(false); // 別のロガーの構成の変更
+}
+</pre></blockquote>
+<p>
+ロガーの参照は、メソッドの終わり (メソッドは脱出しません) で失われるので、
+<code>initLogging</code> の呼び出しの後でガベージコレクションの循環があるなら、ロガー構成は失われます (なぜなら Logger は弱参照を保持するだけなので)。
+.</p>
+<blockquote><pre>
+public static void main(String[] args) throws Exception {
+    initLogging(); // ファイルハンドラーをロガーに追加する
+    System.gc(); // ロガーの構成が失われる
+    Logger.getLogger("edu.umd.cs").info("Some message"); // 期待したようにファイルに記録されません
+}
+</pre></blockquote>
+<p>
+Ulf Ochsenfahrt と Eric Fellheimer
+</p>

@@ -1,0 +1,24 @@
+<p>
+ロードしたバイト値 (たとえば、バイト配列からロードされた値や戻り値がバイト型のメソッドから返された値) とビット論理和を実行しています。
+ビット演算を実行する前にバイト値は32ビットまで符号拡張されます。
+したがって、<code>b[0]</code> の値が <code>0xff</code> で、<code>x</code> の初期値が <code>0</code> だとすると、
+<code>((x &lt;&lt; 8) | b[0])</code> は、<code>0xff</code> が符号拡張で <code>0xffffffff</code> になるので、結果として <code>0xffffffff</code> が得られます。 
+</p>
+<p>
+特に、バイト配列 int にパックする以下のようなコードはひどく間違っています。
+</p>
+<blockquote><pre>
+int result = 0;
+for(int i = 0; i &lt; 4; i++) {
+    result = ((result &lt;&lt; 8) | b[i]);
+}
+</pre></blockquote>
+<p>
+その代わりに、以下のようなイディオムは動作します。
+</p>
+<blockquote><pre>
+int result = 0;
+for(int i = 0; i &lt; 4; i++) {
+    result = ((result &lt;&lt; 8) | (b[i] &amp; 0xff));
+}
+</pre></blockquote>

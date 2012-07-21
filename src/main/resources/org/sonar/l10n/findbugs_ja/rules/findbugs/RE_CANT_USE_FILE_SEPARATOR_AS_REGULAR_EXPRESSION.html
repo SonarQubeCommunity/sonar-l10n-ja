@@ -1,0 +1,6 @@
+<p>
+このコードは、正規表現が必要である <code>File.separator</code> を使用しています。
+これは <code>File.separator</code> がバックスラッシュである Windows プラットホームでは失敗します。
+バックスラッシュは正規表現ではエスケープ文字として解釈されます。
+その他の選択肢としては、<code>File.separator</code> の代わりに <code>File.separatorChar=='\\' ? "\\\\" : File.separator</code> を使用できます。 
+</p>

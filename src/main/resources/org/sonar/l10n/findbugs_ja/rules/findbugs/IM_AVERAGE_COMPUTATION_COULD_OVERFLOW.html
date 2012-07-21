@@ -1,0 +1,11 @@
+<p>
+このコードは、除算か符号付き右シフトを使用して2つの整数の平均を計算して、その結果を配列の添字として使用しています。
+平均値が非常に大きいならオーバーフローする可能性があります (結果として負の平均の計算になる)。
+結果が負でないことを意図していたなら、その代わりに符号なし右シフトを使用できます。
+つまり、<code>(low+high)/2</code> ではなく <code>(low+high) &gt;&gt;&gt; 1</code> を使用してください。
+</p>
+<p>
+このバグは、二分探索とマージソートの多くの以前の実装で存在します。
+Martin Buchholz が <a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6412541">JDK ライブラリでバグを発見し修正しています</a>。
+Joshua Bloch が <a href="http://googleresearch.blogspot.com/2006/06/extra-extra-read-all-about-it-nearly.html">バグパターンとして公表しました</a>。
+</p>

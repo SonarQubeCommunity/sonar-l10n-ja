@@ -1,0 +1,9 @@
+<p>
+このメソッドは、<code>((event.detail &amp; SWT.SELECTED) &gt; 0)</code> のような式を比較しています。
+ビット演算をより大きい演算子で比較することは、予想外の結果 (もちろん、<code>SWT.SELECTED</code> の値による) の原因になる可能性があります。
+<code>SWT.SELECTED</code> が負数であるなら、これはバグの候補です。
+<code>SWT.SELECTED</code> が負ではないとしても、'&gt; 0' の代わりに '!= 0' を使うことは良いプラクティスと思われます。
+</p>
+<p>
+Boris Bokowski
+</p>

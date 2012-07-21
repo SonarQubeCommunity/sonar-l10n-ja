@@ -1,0 +1,6 @@
+<p>
+このメソッドは、配列で <code>.equals(Object o)</code> を呼び出しています。
+配列は、<code>Object</code> の <code>equals</code> メソッドをオーバーライドしないので、配列で <code>equals</code> メソッドを呼び出すことはアドレスを比較することと同じです。
+配列のコンテンツを比較するためには <code>java.util.Arrays.equals(Object[], Object[])</code> を使用してください。
+配列のアドレスを比較するために、明示的に、<code>==</code> を使用して参照等価性をチェックすることは、それほど紛らわしくないでしょう。
+</p>

@@ -1,0 +1,20 @@
+<p>
+このコードは、以下のように整数の乗算を実行してから結果を long に変換しています。
+</p>
+<blockquote><pre>
+long convertDaysToMilliseconds(int days) { return 1000*3600*24*days; } 
+</pre></blockquote>
+<p>
+long を使用して乗算をすれば、結果がオーバーフローするという可能性を回避できます。<br>
+たとえば、以下のように修正できます。
+</p>
+<blockquote><pre>
+long convertDaysToMilliseconds(int days) { return 1000L*3600*24*days; } 
+</pre></blockquote>
+<p>
+または
+</p>
+<blockquote><pre>
+static final long MILLISECONDS_PER_DAY = 24L*3600*1000;
+long convertDaysToMilliseconds(int days) { return days * MILLISECONDS_PER_DAY; } 
+</pre></blockquote>

@@ -1,0 +1,20 @@
+<p>
+このコードは、明らかに共有されていない <code>Integer</code> のようなボクシングされたプリミティブ型で同期化しています。
+</p>
+<blockquote><pre>
+private static final Integer fileLock = new Integer(1);
+
+synchronized(fileLock) { 
+    .. do something ..
+}
+</pre></blockquote>
+<p>
+このコードは、 fileLock を以下のように宣言するとより良くなります。
+</p>
+<blockquote><pre>
+private static final Object fileLock = new Object();
+</pre></blockquote>
+<p>
+既存のコードとしては間違っていないのかもしれませんが、紛らわしいので将来リファクタリングするべきかもしれません。
+たとえば、IntelliJ の "Remove Boxing" のようなリファクタリングは Java 仮想マシンを通して共有される正準化された <code>Integer</code> オブジェクトを使用するように置き換えてしまい、非常に紛らわしい振る舞いと潜在的デッドロックの原因になります。
+</p>

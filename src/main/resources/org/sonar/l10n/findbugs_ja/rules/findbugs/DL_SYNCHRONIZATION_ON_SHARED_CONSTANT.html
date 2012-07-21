@@ -1,0 +1,16 @@
+<p>
+このコードは、正準化した文字列で同期化しています。
+</p>
+<blockquote><pre>
+private static String LOCK = "LOCK";
+
+synchronized(LOCK) {
+    ...
+}
+</pre></blockquote>
+<p>
+文字列定数は正準化され、Java 仮想マシンによってロードされたすべてのクラス全体で共有されます。
+したがって、これは他のコードがロックしているかもしれない何かをロックしている可能性があります。
+これはブロッキングとデッドロックの振る舞いの診断を難しくして、とても奇妙な結果になる可能性があります。 <br>
+詳細は、<a href="http://www.javalobby.org/java/forums/t96352.html">http://www.javalobby.org/java/forums/t96352.html</a> と <a href="http://jira.codehaus.org/browse/JETTY-352">http://jira.codehaus.org/browse/JETTY-352</a> を参照してください。
+</p>

@@ -1,0 +1,13 @@
+<p>
+このクラスは、<code>equals(Object)</code> をオーバーライドしているのに <code>hashCode</code> メソッドは <code>java.lang.Object</code> から継承しています (同一性ハッシュコード (Java 仮想マシンによってオブジェクトに代入された任意の値) を返します)。
+したがって、「等価なオブジェクトは等価なハッシュコードを保持する必要がある」という <code>hashCode</code> メソッドの汎用規約に違反するかもしれません。
+</p>
+<p>
+このクラスのインスタンスが HashMap/HashTable に決して代入されるだろうと思わないなら、推奨される <code>hashCode</code> メソッドの実装は以下のようになります。
+</p>
+<blockquote><pre>
+public int hashCode() {
+    assert false : "hashCodeが呼び出されることは想定されていません。";
+    return 42; // 適当な値 
+}
+</pre></blockquote>

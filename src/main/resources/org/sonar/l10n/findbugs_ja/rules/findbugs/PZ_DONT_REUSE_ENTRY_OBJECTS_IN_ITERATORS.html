@@ -1,0 +1,6 @@
+<p>
+このクラスは、Iterator と Map.Entry で基底 Map のビューを返すことを許可された両方の entrySet メソッドがあります。
+この巧妙なアイデアは、Map 実装で使用されましたが、厄介なコーディング間違いの可能性を取り込みました。
+Map <code>m</code> が entrySet のためのそのような反復子を返すならば、<code>c.addAll(m.entrySet())</code>　はひどく間違っていくでしょう。
+OpenJDK 1.7 の すべての Map 実装はこれを回避するために書き直されました。
+</p>

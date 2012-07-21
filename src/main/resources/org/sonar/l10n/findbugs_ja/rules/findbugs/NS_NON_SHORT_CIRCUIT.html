@@ -1,0 +1,7 @@
+<p>
+このコードは、短絡論理 (&amp;&amp; や ||) ではなく非短絡論理 (&amp; や |) を使用していると思われます。
+非短絡論理は、左辺の結果がわかっていて推論できるときでも、両側の式が評価されます。
+左辺が右辺の評価でエラーになるケースをガードするなら効率が悪くエラーになる可能性があります。
+</p>
+詳細については、<a href="http://java.sun.com/docs/books/jls/third_edition/html/expressions.html#15.22.2">the Java Language Specification</a> を参照してください。
+</p>

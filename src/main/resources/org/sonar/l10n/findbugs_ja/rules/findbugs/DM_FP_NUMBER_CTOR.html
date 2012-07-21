@@ -1,0 +1,8 @@
+<p>
+<code>new Double(double)</code> の使用は、常に新しいブジェクトになることが保証されています。
+これに対して、<code>Double.valueOf(double)</code> は、コンパイラ、クラスライブラリ、Java 仮想マシンで値がキャッシュされます。
+キャッシュに格納された値を使うことはインスタンス生成を回避し、コードはより高速になります。
+</p>
+<p>
+クラスが J2SE 5.0より前の Java 仮想マシンとの互換性が不要なら、オートボクシングか <code>Double</code>、<code>Float</code> の <code>valueOf</code> メソッドを使用してください。
+</p>

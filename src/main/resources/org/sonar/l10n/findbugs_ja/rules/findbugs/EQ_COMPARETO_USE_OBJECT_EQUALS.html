@@ -1,0 +1,13 @@
+<p>
+このクラスは、<code>compareTo(...)</code> メソッドを定義していますが、<code>equals</code> メソッドは <code>java.lang.Object</code> から継承しています。
+通常、<code>equals</code> メソッドが true を返す場合に限り、<code>compareTo</code> メソッドは0を返すべきです。
+これが違反されるなら奇妙で予測できない失敗が PriorityQueue などのクラスで発生します。
+J2SE 5.0では、<code>PriorityQueue.remove()</code> は <code>compareTo</code> メソッドを使用しますが、Java SE 6では、<code>equals</code> メソッドを使用します。
+<p>
+Comparable インタフェースの compareTo メソッドの JavaDoc を以下に引用します。
+</p>
+<blockquote><p>
+必須というわけではありませんが、<code>(x.compareTo(y)==0) == (x.equals(y))</code> であることが強く推奨されます。
+通常、<code>Comparable</code> インタフェースを実装しているクラスで、この条件に違反するクラスは明確にこの事実を示す必要があります。
+「注:このクラスは <code>equals</code> と一貫性のない自然順序付けを持ちます」などと明示することをお勧めします。
+</p></blockquote>

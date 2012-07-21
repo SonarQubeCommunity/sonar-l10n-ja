@@ -1,0 +1,7 @@
+<p>
+<code>java.util.Random</code> のインスタンス <code>r</code> で、<code>0</code> から <code>n-1</code> の乱数を生成したいのであれば、<code>(int)(r.nextDouble() * n)</code> ではなく <code>r.nextInt(n)</code> を使用します。
+</p>
+<p>
+<code>nextInt</code> メソッドへの引数は整数でなければなりません。
+たとえば、-99から0までの乱数を生成したいなら、<code>-r.nextInt(100)</code> を使用してください。
+</p>

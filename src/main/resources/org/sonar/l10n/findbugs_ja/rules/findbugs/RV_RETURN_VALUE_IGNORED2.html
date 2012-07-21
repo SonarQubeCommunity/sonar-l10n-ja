@@ -1,0 +1,18 @@
+<p>
+このメソッドの戻り値はチェックするべきです。
+この警告の共通の原因は、オブジェクトが更新されると思って不変オブジェクトのメソッドを呼び出すことです。<br>
+たとえば、以下のようなコードです。
+</p>
+<blockquote><pre>
+String dateString = getHeaderField(name);
+dateString.trim();
+</pre></blockquote>
+<p>
+プログラマは、<code>trim</code> メソッドが <code>dateString</code> によって参照される String オブジェクトが更新されると思っています。
+しかし、String オブジェクトは不変で、<code>trim</code> メソッドが新しい String オブジェクトを返すのに無視しています。
+このコードは、以下のように修正するべきです。
+</p>
+<blockquote><pre>
+String dateString = getHeaderField(name);
+dateString = dateString.trim();
+</pre></blockquote>

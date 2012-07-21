@@ -1,0 +1,6 @@
+<p>
+このコードは、浮動小数点が特別な非数値と等価であるか確かめています (たとえば、<code>if (x == Double.NaN)</code>)。
+しかしながら、<code>NaN</code> の特別な意味のため、値は <code>NaN</code> と等価ではありません。
+したがって、<code>x == Double.NaN</code> は常に false と評価します。
+<code>x</code> という値が特別な非数値であるかどうか確かめるためには <code>Double.isNaN(x)</code> を使用します (あるいは、<code>x</code> が浮動小数点精度であるなら <code>Float.isNaN(x)</code>)。
+</p>

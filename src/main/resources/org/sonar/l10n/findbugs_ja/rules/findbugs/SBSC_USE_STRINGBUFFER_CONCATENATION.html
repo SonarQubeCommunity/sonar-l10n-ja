@@ -1,0 +1,25 @@
+<p>
+このメソッドは、ループの中で + を使用して <code>String</code> を構築していると思われます。
+各々の繰り返しにおいて、<code>String</code> は <code>StringBuffer</code>/<code>StringBuilder</code> に変換、追加され、<code>String</code> へ変換されます。
+各々の繰り返しで文字列が再コピーされ増大すると、繰り返しの数で二次コストの原因になる可能性があります。
+</p>
+<p>
+明示的に、<code>StringBuffer</code> (または J2SE 5.0の <code>StringBuilder</code>) を使うことで、より良い性能を得られるかもしれません。
+</p>
+<p>
+たとえば、
+</p>
+<blockquote><pre>
+// This is bad
+String s = "";
+for (int i = 0; i &lt; field.length; ++i) {
+    s = s + field[i];
+}
+
+// This is better
+StringBuffer buf = new StringBuffer();
+for (int i = 0; i &lt; field.length; ++i) {
+    buf.append(field[i]);
+}
+String s = buf.toString();
+</pre></blockquote>

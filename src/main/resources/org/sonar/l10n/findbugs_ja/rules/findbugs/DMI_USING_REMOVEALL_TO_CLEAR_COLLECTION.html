@@ -1,0 +1,4 @@
+<p>
+コレクション <code>c</code> からすべての要素を除去したいなら、<code>c.removeAll(c)</code> ではなく <code>c.clear</code> を使用してください。
+コレクションを消去するために <code>c.removeAll(c)</code> を呼び出すことは、それほど明確ではなく、タイプミスからの誤りに影響されやすく、効率的ではなく、いくつかのコレクションでは、<code>ConcurrentModificationException</code> をスローするかもしれません。
+</p>

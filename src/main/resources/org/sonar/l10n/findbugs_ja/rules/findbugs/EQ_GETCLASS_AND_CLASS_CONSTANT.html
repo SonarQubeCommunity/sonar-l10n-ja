@@ -1,0 +1,5 @@
+<p>
+このクラスは、サブクラスによって継承されるなら、壊れる <code>equlas</code> メソッドがあります。
+<code>equals</code> メソッドは、クラスリテラルを引数のクラスと比較しています (たとえば、<code>Foo</code> クラスで、<code>Foo.class == o.getClass()</code> のような判定を行っています)。
+それは、<code>this.getClass() == o.getClass()</code> の方がより良いです。
+</p>

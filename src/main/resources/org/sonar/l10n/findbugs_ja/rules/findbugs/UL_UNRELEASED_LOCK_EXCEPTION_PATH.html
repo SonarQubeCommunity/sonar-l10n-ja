@@ -1,0 +1,13 @@
+<p>
+このメソッドは、JSR-166(<code>java.util.concurrent</code>) のロックを獲得しているのにメソッドからのすべての例外経路で解除していません。
+通常、JSR-166のロックを使用するための正しいイディオムは以下のようになります。
+</p>
+<blockquote><pre>
+Lock l = ...;
+l.lock();
+try {
+    // do something
+} finally {
+    l.unlock();
+}
+</pre></blockquote>

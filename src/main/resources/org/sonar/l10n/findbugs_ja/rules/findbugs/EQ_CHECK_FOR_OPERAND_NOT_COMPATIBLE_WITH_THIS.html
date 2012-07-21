@@ -1,0 +1,17 @@
+<p>
+この <code>equals</code> メソッドは、引数が互換性のない型 (すなわち、スーパタイプでもなく、<code>equals</code> メソッドを定義しているクラスのスーパータイプでもサブタイプでもないクラス) なのか確かめています。
+たとえば、<code>Foo</code> クラスの <code>equals</code> メソッドはそのように見えるかもしれません。
+</p>
+<blockquote><pre>
+public boolean equals(Object o) {
+    if (o instanceof Foo)
+        return name.equals(((Foo)o).name);
+    else if (o instanceof String)
+        return name.equals(o);
+    else return false;
+}
+</pre></blockquote>
+<p>
+これは対称的で推移的である <code>equals</code> メソッドを実現するのはとても難しいので、間違ったプラクティスと見なされています。
+プロパティがなければまったく予想していない振る舞いが起こりえます。
+</p>

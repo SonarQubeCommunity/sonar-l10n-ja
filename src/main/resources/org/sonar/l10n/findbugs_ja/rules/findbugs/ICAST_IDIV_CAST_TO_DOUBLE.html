@@ -1,0 +1,16 @@
+<p>
+このコードは 整数の除算の結果を double または float にキャストしています。
+整数で除算をすることは、ゼロに最も近い整数値まで結果を切り捨てます。
+結果が double にキャストされたという事実は、この精度が維持されるべきだったことを示唆しています。
+おそらく意味されたことは、除算を実行する前にオペランドの1つまたは両方を double にキャストすることでした。<br>
+以下に例を示します。 
+</p>
+<blockquote><pre>
+int x = 2;
+int y = 5;
+// Wrong: yields result 0.0
+double value1 =  x / y;
+
+// Right: yields result 0.4
+double value2 =  x / (double) y;
+</pre></blockquote>

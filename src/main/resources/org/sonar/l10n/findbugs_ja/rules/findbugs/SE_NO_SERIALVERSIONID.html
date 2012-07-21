@@ -1,0 +1,7 @@
+<p>
+このクラスは <code>Serializable</code> インタフェースを実装しているのに <code>serialVersionUID</code> フィールドを定義していません。
+.class オブジェクトへの参照を追加するのと同じくらい簡単な変更でクラスに合成フィールドを追加します。
+それは、残念ながら暗黙の serialVersionUID を変えます (たとえば、<code>String.class</code> への参照を追加すると、<code>class$java$lang$String</code> という static フィールドを生成します)。
+また、バイトコードコンパイラへの異なるソースコードは、クラスオブジェクトまたは内部クラスに参照のために生成される合成変数のために、異なる命名規則を使用するかもしれません。
+バージョンを横断する Serializable の相互運用性を保証するために、明示的に、serialVersionUID を追加することを検討してください。
+</p>

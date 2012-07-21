@@ -1,0 +1,7 @@
+<p>
+このクラスは、抽象スーパークラスから <code>equals(Object)</code> メソッドを継承して、<code>java.lang.Object</code> から <code>hashCode</code> メソッドを継承しています (同一性ハッシュコード (Java 仮想マシンによってオブジェクトに代入された任意の値) を返します)。
+したがって、「等価なオブジェクトは等価なハッシュコードを保持する必要がある」という <code>hashCode</code> メソッドの汎用規約に違反するかもしれません。
+</p>
+<p>
+<code>hashCode</code> メソッドを定義したくない、またはオブジェクトが HashMap/Hashtable に決して格納されないだろうと思っているなら <code>UnsupportedOperationException</code> をスローする <code>hashCode()</code> メソッドを定義してください。
+</p>

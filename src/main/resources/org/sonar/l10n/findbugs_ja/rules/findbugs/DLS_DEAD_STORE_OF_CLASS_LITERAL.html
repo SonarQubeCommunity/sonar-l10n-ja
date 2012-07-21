@@ -1,0 +1,9 @@
+<p>
+この命令は変数にクラスリテラルを代入しているのに決して使われません。<br>
+<a href="//java.sun.com/j2se/1.5.0/compatibility.html#literal">The behavior of this differs in Java 1.4 and in Java 5</a><br>
+J2SE 1.4 およびそれ以前のバージョンでは、<code>Foo.class</code> への参照は <code>Foo</code> のためのスタティックイニシャライザがすでに実行されていないなら実行することを強制します。
+J2SE 5.0ではそうしません。
+</p>
+<p>
+より多くの詳細と例と J2SE 5.0のクラスの強制的な初期化の方法の提案は Sun の<a href="//java.sun.com/j2se/1.5.0/compatibility.html#literal">article on Java SE compatibility</a> を参照してください。
+</p>

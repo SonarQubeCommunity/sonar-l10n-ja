@@ -1,0 +1,22 @@
+<p>
+このコードは、32ビット int 値を64ビット long 値に変換して、絶対時間値を必要とするメソッドパラメータに渡しています。
+絶対時間値は、「エポック」（すなわち、1970年1月1日、00:00:00 GMT）としてわかっている標準的な基準時間からのミリ秒数です。<br>
+たとえば、次のメソッド（Date にエポックから秒を変換することを意図した）は、ひどく壊れています。
+</p>
+<blockquote><pre>
+Date getDate(int seconds) { return new Date(seconds * 1000); }
+</pre></blockquote>
+<p>
+乗算は32ビット演算を使用して、64ビット値に変換されます。
+32ビット値は、64ビットに変換されて、絶対時間値を表すために使用されるとき、1969年12月と1970年1月の日付しか表せません。
+</p>
+<p>
+上記のメソッドのための正しい実装は、以下の通りです。
+</p>
+<blockquote><pre>
+// 失敗、2037年後の日付
+Date getDate(int seconds) { return new Date(seconds * 1000L); }
+
+// より良い, すべての日付で動作する
+Date getDate(long seconds) { return new Date(seconds * 1000); }
+</pre></blockquote>

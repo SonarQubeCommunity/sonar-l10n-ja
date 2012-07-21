@@ -1,0 +1,6 @@
+<p>
+JavaDoc に書かれているように、DateFormat はマルチスレッドでの使用は本質的に安全ではありません。
+ディテクタは、static フィールドから得られた DateFormat のインスタンスの呼び出しを発見しました。
+これは疑わしく見えます。
+詳細については、<a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6231579">Sun Bug #6231579</a> や <a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=6178997">Sun Bug #6178997</a> を参照してください。
+</p>

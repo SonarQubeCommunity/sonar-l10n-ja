@@ -1,0 +1,17 @@
+<p>
+このメソッドは、フィールドの同時更新に対して同期化でガードしようとしていますが、フィールドをガードするとフィールドではなく、参照されたオブジェクトのロックを獲得します。
+これはあなたが必要とする相互排除を提供しないかもしれません。
+そして、他のスレッドは (他の目的のための) 参照されたオブジェクトのロックを獲得するかもしれません。<br>
+このパターンの例は以下のようになります。
+</p>
+<blockquote><pre>
+private Long myNtfSeqNbrCounter = new Long(0);
+private Long getNotificationSequenceNumber() {
+     Long result = null;
+     synchronized(myNtfSeqNbrCounter) {
+         result = new Long(myNtfSeqNbrCounter.longValue() + 1);
+         myNtfSeqNbrCounter = new Long(result.longValue());
+     }
+     return result;
+}
+</pre></blockquote>

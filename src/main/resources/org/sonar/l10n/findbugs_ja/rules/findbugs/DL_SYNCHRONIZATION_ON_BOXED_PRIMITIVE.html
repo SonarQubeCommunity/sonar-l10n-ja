@@ -1,0 +1,17 @@
+<p>
+このコードは、Integer のようなボクシングされたプリミティブ型の定数で同期化しています。
+</p>
+<blockquote><pre>
+private static Integer count = 0;
+
+synchronized(count) { 
+    count++;
+}
+</pre></blockquote>
+<p>
+<code>Integer</code> オブジェクトはキャッシュして共有される可能性があります。
+他の無関係なコードと同じオブジェクトで同期化している可能性があるので、無応答やデッドロックの原因になります。
+</p>
+<p>
+CERT の <a href="https://www.securecoding.cert.org/confluence/display/java/CON08-J.+Do+not+synchronize+on+objects+that+may+be+reused">CON08-J. Do not synchronize on objects that may be reused</a> を参照してください。
+</p>

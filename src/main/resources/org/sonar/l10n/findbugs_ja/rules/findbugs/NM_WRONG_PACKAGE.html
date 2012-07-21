@@ -1,0 +1,21 @@
+<p>
+パラメータの型がスーパークラスで対応するパラメータの型と正確に合致していないので、サブクラスのメソッドはスーパークラスの類似したメソッドをオーバーライドしていません。<br>
+たとえば、以下のようなコードです。
+</p>
+<blockquote><pre>
+import alpha.Foo;
+
+public class A {
+    public int f(Foo x) { return 17; }
+}
+----
+import beta.Foo;
+
+public class B extends A {
+    public int f(Foo x) { return 42; }
+}
+</pre></blockquote>
+<p>
+クラス <code>B</code> で定義された <code>f(Foo)</code> メソッドは、クラス <code>A</code> の <code>f(Foo)</code> メソッドをオーバーライドしていません。
+これは引数の型 <code>Foo</code> が違うパッケージだからです。
+</p>

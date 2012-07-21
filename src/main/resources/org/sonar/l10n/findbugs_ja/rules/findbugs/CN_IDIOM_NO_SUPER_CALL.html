@@ -1,0 +1,8 @@
+<p>
+この非 final クラスは、<code>super.clone()</code> を呼び出さない <code>clone</code> メソッドを定義しています。
+クラス <i>A</i> がサブクラス <i>B</i> によって拡張され、サブクラス <i>B</i> が <code>super.clone()</code> を呼び出すなら、クラス <i>B</i> の <code>clone</code> メソッドは、型 <i>A</i> のオブジェクトを返す可能性が高いです。
+これは <code>clone</code> のための汎用規約に違反します。
+</p>
+<p>
+すべての <code>clone</code> メソッドが <code>super.clone()</code> を呼び出すなら <code>Object.clone()</code> が呼び出されることが保証され、常に正しい型のオブジェクトが返されます。
+</p>

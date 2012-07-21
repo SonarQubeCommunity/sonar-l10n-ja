@@ -1,0 +1,8 @@
+<p>
+このクラスはスーパークラスの <code>equals</code> メソッドをオーバーライドする <code>equals</code> メソッドを定義しています。
+両方の <code>equals</code> メソッドは、2つのオブジェクトが等しいかどうかの判定で、<code>instanceof</code> を使用しています。
+<code>equals</code> メソッドは対称的 (<code>a.equals(b) == b.equals(a)</code>) であることが重要なのでこれは危険を伴っています。
+<i>B</i> が <i>A</i> のサブタイプなら <i>A</i> の <code>equals</code> メソッドは引数が <code>instanceof A</code> なのかチェックします。
+そして、<i>B</i> の <code>equals</code> メソッドは引数が <code>instanceof B</code> なのかチェックします。
+これらのメソッドによって定義された同値関係が対称的でないということです。
+</p>

@@ -1,0 +1,17 @@
+<p>
+このコードは、例外 (またはエラー) オブジェクトを作成しているのに何もしていません。<br>
+たとえば、以下のようなコードです。
+</p>
+<blockquote><pre>
+if (x &lt; 0) {
+    new IllegalArgumentException("x must be nonnegative");
+}
+</pre></blockquote>
+<p>
+おそらくプログラマの意図は、作成した例外をスローすることでした。 
+</p>
+<blockquote><pre>
+if (x &lt; 0) {
+    throw new IllegalArgumentException("x must be nonnegative");
+}
+</pre></blockquote>

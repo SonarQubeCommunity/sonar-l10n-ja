@@ -1,0 +1,21 @@
+<p>
+このメソッドは、ストリーム、データベースオブジェクト、または明示的にクリーンアップ操作を必要としている他のリソースのクリーンアップ (クローズする、片付ける) に失敗するかもしれません。
+</p>   
+<p>
+通常、メソッドがストリープや他のリソースを開いたなら、メソッドはストリームやリソースがメソッドが戻る前にクリーンアップされることを確認するために、try/finally ブロックを使用するべきです。
+</p>
+<p>
+このバグパターンは、OS_OPEN_STREAM と ODR_OPEN_DATABASE_RESOURCE と基本的に同じですが異なる (そして、うまくいけばより良い) 静的解析技術に基づいています。
+私たちは、このバグパターンの有用性についてのフィードバックを得ることに関心があります。
+どちらかの方法でフィードバックを送ってください。
+</p>
+<ul>
+<li>send email to findbugs@cs.umd.edu</li>
+<li>file a bug report: <a href="http://findbugs.sourceforge.net/reportingBugs.html">http://findbugs.sourceforge.net/reportingBugs.html</a></li>
+</ul>
+<p>
+特に、このバグパターンの誤検出抑制探索法は詳細にわたって調整されていないので、誤検出についてのレポートは我々の助けになります。 
+</p>
+<p>
+解析技術の説明は、Weimer と Necula による <i>Finding and Preventing Run-Time Error Handling Mistakes</i> を参照してください。 
+</p>
