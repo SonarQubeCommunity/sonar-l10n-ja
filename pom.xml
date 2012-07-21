@@ -15,6 +15,7 @@
   <version>1.1-SNAPSHOT</version>
 
   <name>L10n :: Japanese Pack</name>
+  <url>http://docs.codehaus.org/display/SONAR/Japanese+Pack</url>
   <inceptionYear>2012</inceptionYear>
 
   <licenses>
