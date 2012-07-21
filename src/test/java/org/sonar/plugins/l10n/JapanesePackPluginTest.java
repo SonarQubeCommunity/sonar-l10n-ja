@@ -40,6 +40,11 @@ public class JapanesePackPluginTest {
   }
 
   @Test
+  public void findbugsBundleShouldBeUpToDate() {
+    assertThat("findbugs_ja.properties", isBundleUpToDate(SONAR_VERSION));
+  }
+
+  @Test
   public void squidJavaBundleShouldBeUpToDate() {
     assertThat("squidjava_ja.properties", isBundleUpToDate(SONAR_VERSION));
   }
