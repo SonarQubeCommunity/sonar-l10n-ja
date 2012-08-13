@@ -21,36 +21,31 @@ package org.sonar.plugins.l10n;
 
 import org.junit.Test;
 
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
-import static org.sonar.test.i18n.I18nMatchers.isBundleUpToDate;
+import java.util.HashMap;
+import java.util.Map;
+
+import static org.sonar.test.i18n.I18nMatchers.assertAllBundlesUpToDate;
 
 public class JapanesePackPluginTest {
 
+  /**
+   * Version of Sonar which is covered by the language pack
+   */
   private static final String SONAR_VERSION = "3.2";
 
-  @Test
-  public void coreBundleShouldBeUpToDate() {
-    assertThat("core_ja.properties", isBundleUpToDate(SONAR_VERSION));
-  }
+  /**
+   * Bundles of the forge plugins covered by the language pack
+   */
+
+  private static final Map<String, String> pluginIdsToBundleUrlMap = new HashMap<String, String>() {
+    {
+      // put here the forge plugins covered by this language pack
+    }
+  };
 
   @Test
-  public void gwtBundleShouldBeUpToDate() {
-    assertThat("gwt_ja.properties", isBundleUpToDate(SONAR_VERSION));
+  public void test() throws Exception {
+    assertAllBundlesUpToDate(SONAR_VERSION, pluginIdsToBundleUrlMap);
   }
 
-  @Test
-  public void findbugsBundleShouldBeUpToDate() {
-    assertThat("findbugs_ja.properties", isBundleUpToDate(SONAR_VERSION));
-  }
-
-  @Test
-  public void squidJavaBundleShouldBeUpToDate() {
-    assertThat("squidjava_ja.properties", isBundleUpToDate(SONAR_VERSION));
-  }
-
-  @Test
-  public void test_plugin_metadata() {
-    assertThat(new JapanesePackPlugin().getExtensions().size(), is(0));
-  }
 }
