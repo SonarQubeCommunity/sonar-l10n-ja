@@ -26,9 +26,15 @@
     </license>
   </licenses>
 
+  <scm>
+    <connection>scm:svn:http://svn.codehaus.org/sonar-plugins/trunk/l10n/ja</connection>
+    <developerConnection>scm:svn:https://svn.codehaus.org/sonar-plugins/trunk/l10n/ja</developerConnection>
+    <url>http://svn.sonar-plugins.codehaus.org</url>
+  </scm>
+
   <properties>
     <sonar.pluginClass>org.sonar.plugins.l10n.JapanesePackPlugin</sonar.pluginClass>
-    <sonar.version>3.1</sonar.version>
+    <sonar.version>3.2</sonar.version>
     <license.owner>Yoshiyuki NISHINAKA</license.owner>
     <license.mailto>yoshiyuki.nishinaka@gmail.com</license.mailto>
   </properties>
@@ -54,13 +60,6 @@
   </developers>
 
   <build>
-    <testResources>
-      <testResource>
-        <directory>src/test/resources</directory>
-        <filtering>true</filtering>
-      </testResource>
-    </testResources>
-
     <plugins>
       <plugin>
         <groupId>org.codehaus.sonar</groupId>
@@ -75,7 +74,6 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>native2ascii-maven-plugin</artifactId>
-        <version>1.0-beta-1</version>
         <executions>
           <execution>
             <goals>
@@ -86,11 +84,5 @@
       </plugin>
     </plugins>
   </build>
-
-  <scm>
-    <connection>scm:svn:http://svn.codehaus.org/sonar-plugins/trunk/l10n/ja</connection>
-    <developerConnection>scm:svn:https://svn.codehaus.org/sonar-plugins/trunk/l10n/ja</developerConnection>
-    <url>http://svn.sonar-plugins.codehaus.org</url>
-  </scm>
 
 </project>
