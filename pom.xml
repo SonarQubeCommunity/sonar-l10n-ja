@@ -15,6 +15,7 @@
   <version>1.2-SNAPSHOT</version>
 
   <name>L10n :: Japanese Pack</name>
+  <description>A Japanese Localization Pack for Sonar.</description>
   <url>http://docs.codehaus.org/display/SONAR/Japanese+Pack</url>
   <inceptionYear>2012</inceptionYear>
 
