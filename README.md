@@ -15,6 +15,10 @@ A Japanese Localization Pack for Sonar.
 + [http://jira.codehaus.org/browse/SONARPLUGINS/component/15583]
 (http://jira.codehaus.org/browse/SONARPLUGINS/component/15583)
 
+### Continuous Integration
++ [https://sonarplugins.ci.cloudbees.com/job/l10n-ja/]
+(https://sonarplugins.ci.cloudbees.com/job/l10n-ja/)
+
 
 Download
 --------
