@@ -20,32 +20,13 @@
 package org.sonar.plugins.l10n;
 
 import org.junit.Test;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import static org.sonar.test.i18n.I18nMatchers.assertAllBundlesUpToDate;
+import org.sonar.test.i18n.I18nMatchers;
 
 public class JapanesePackPluginTest {
 
-  /**
-   * Version of Sonar which is covered by the language pack
-   */
-  private static final String SONAR_VERSION = "3.2";
-
-  /**
-   * Bundles of the forge plugins covered by the language pack
-   */
-
-  private static final Map<String, String> pluginIdsToBundleUrlMap = new HashMap<String, String>() {
-    {
-      // put here the forge plugins covered by this language pack
+    @Test
+    public void bundles_should_be_up_to_date() {
+        I18nMatchers.assertBundlesUpToDate();
     }
-  };
-
-  @Test
-  public void test() throws Exception {
-    assertAllBundlesUpToDate(SONAR_VERSION, pluginIdsToBundleUrlMap);
-  }
 
 }

@@ -1,0 +1,15 @@
+<p>
+型修飾子アノテーションを指定した値がその修飾子のない値と比較しています。
+</p>
+<p>
+より正確に、when=ALWAYS を指定した型修飾子でアノテートされた値が同じ型修飾子で when=NEVER を指定する値と比較しています。
+</p>
+<p>
+たとえば、@NonNegative が型修飾子アノテーション @Negative(when=When.NEVER) の略称だとします。
+以下のコードは、return 文が @NonNegative 値を要求するが、@Negative としてマークされている値を受け取るのでこの警告を生成します。
+</p>
+<blockquote><pre>
+public boolean example(@Negative Integer value1, @NonNegative Integer value2) {
+    return value1.equals(value2);
+}
+</pre></blockquote>

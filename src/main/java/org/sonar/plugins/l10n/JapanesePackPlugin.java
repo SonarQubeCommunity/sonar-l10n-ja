@@ -19,14 +19,16 @@
  */
 package org.sonar.plugins.l10n;
 
-import org.sonar.api.SonarPlugin;
-
 import java.util.Collections;
 import java.util.List;
 
+import org.sonar.api.Extension;
+import org.sonar.api.SonarPlugin;
+
 public final class JapanesePackPlugin extends SonarPlugin {
 
-  public List getExtensions() {
-    return Collections.emptyList();
-  }
+    public List<Class<? extends Extension>> getExtensions() {
+        return Collections.emptyList();
+    }
+
 }
