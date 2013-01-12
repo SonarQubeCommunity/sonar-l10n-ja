@@ -3,3 +3,16 @@
 それぞれの catch ブロックが同一である多くの例外型をキャッチすることの短縮形として <code>try { ... } catch (Exception e) { something }</code> を使用することが共通のバグパターンです。
 しかし、この構文は誤って実行時例外も同様にキャッチするので、潜在的なバグを隠します。
 </p>
+<p>
+より良いアプローチは、明示的にキャッチするよりもスローされる特定の例外をスローします。
+あるいは、以下に示すように明示的に RuntimeException をキャッチ、再スローして、非実行時例外をキャッチします。
+</p>
+<blockquote><pre>
+try {
+    ...
+} catch (RuntimeException e) {
+    throw e;
+} catch (Exception e) {
+    ... deal with all non-runtime exceptions ...
+}
+</pre></blockquote>
