@@ -14,7 +14,7 @@
   <packaging>sonar-plugin</packaging>
 
   <name>L10n :: Japanese Pack</name>
-  <description>A Japanese Localization Pack for Sonar.</description>
+  <description>Language Pack for Japanese</description>
   <url>http://docs.codehaus.org/display/SONAR/Japanese+Pack</url>
   <inceptionYear>2012</inceptionYear>
 
