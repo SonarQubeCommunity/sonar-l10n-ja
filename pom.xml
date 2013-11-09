@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.codehaus.sonar-plugins</groupId>
     <artifactId>parent</artifactId>
-    <version>15</version>
+    <version>16</version>
   </parent>
 
   <groupId>org.codehaus.sonar-plugins.l10n</groupId>
@@ -35,11 +35,11 @@
 
   <properties>
     <sonar.pluginClass>org.sonar.plugins.l10n.JapanesePackPlugin</sonar.pluginClass>
-    <sonar.version>3.4</sonar.version>
-    <sonar-core-plugin.version>3.4</sonar-core-plugin.version>
+    <sonar.version>3.5</sonar.version>
+    <sonar-core-plugin.version>3.5</sonar-core-plugin.version>
     <sonar-findbugs-plugin.version>3.3.2</sonar-findbugs-plugin.version>
-    <sonar-l10n-en-plugin.version>3.4</sonar-l10n-en-plugin.version>
-    <sonar-squid-java-plugin.version>1.1</sonar-squid-java-plugin.version>
+    <sonar-l10n-en-plugin.version>3.5</sonar-l10n-en-plugin.version>
+    <sonar-squid-java-plugin.version>1.2</sonar-squid-java-plugin.version>
     <license.owner>Yoshiyuki NISHINAKA</license.owner>
     <license.mailto>yoshiyuki.nishinaka@gmail.com</license.mailto>
   </properties>
