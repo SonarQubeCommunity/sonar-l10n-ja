@@ -17,6 +17,10 @@
   <description>Language Pack for Japanese</description>
   <url>http://docs.codehaus.org/display/SONAR/Japanese+Pack</url>
   <inceptionYear>2012</inceptionYear>
+  <organization>
+    <name>Motley Reservoir</name>
+	<url>http://www.motr.jp/</url>
+  </organization>
 
   <licenses>
     <license>
@@ -25,6 +29,11 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
+
+  <issueManagement>
+    <system>JIRA</system>
+    <url>http://jira.codehaus.org/browse/SONARPLUGINS/component/15583</url>
+  </issueManagement>
 
   <scm>
     <connection>scm:git:git://github.com/SonarCommunity/sonar-l10n-ja.git</connection>
