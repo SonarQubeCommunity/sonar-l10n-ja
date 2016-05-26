@@ -3,13 +3,9 @@ SonarCommunity / sonar-l10n-ja
 
 A Japanese Localization Pack for Sonar.
 
-### GitHub
+### Project Home
 + [https://github.com/SonarQubeCommunity/sonar-l10n-ja]
 (https://github.com/SonarQubeCommunity/sonar-l10n-ja)
-
-### Project Home
-+ [http://docs.codehaus.org/display/SONAR/Japanese+Pack]
-(http://docs.codehaus.org/display/SONAR/Japanese+Pack)
 
 ### Issue Tracker
 + [https://github.com/SonarQubeCommunity/sonar-l10n-ja/issues]
