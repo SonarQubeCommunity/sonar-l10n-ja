@@ -15,7 +15,7 @@
 
   <name>L10n :: Japanese Pack</name>
   <description>Language Pack for Japanese</description>
-  <url>http://docs.codehaus.org/display/SONAR/Japanese+Pack</url>
+  <url>https://github.com/SonarQubeCommunity/sonar-l10n-ja</url>
   <inceptionYear>2012</inceptionYear>
   <organization>
     <name>Motley Reservoir</name>
@@ -31,14 +31,14 @@
   </licenses>
 
   <issueManagement>
-    <system>GitHub</system>
-    <url>https://github.com/SonarCommunity/sonar-l10n-ja/issues</url>
+    <system>GitHub Issues</system>
+    <url>https://github.com/SonarQubeCommunity/sonar-l10n-ja/issues</url>
   </issueManagement>
 
   <scm>
-    <connection>scm:git:git://github.com/SonarCommunity/sonar-l10n-ja.git</connection>
-    <developerConnection>scm:git:git@github.com:SonarCommunity/sonar-l10n-ja.git</developerConnection>
-    <url>https://github.com/SonarCommunity/sonar-l10n-ja</url>
+    <connection>scm:git:git://github.com/SonarQubeCommunity/sonar-l10n-ja.git</connection>
+    <developerConnection>scm:git:git@github.com:SonarQubeCommunity/sonar-l10n-ja.git</developerConnection>
+    <url>https://github.com/SonarQubeCommunity/sonar-l10n-ja</url>
     <tag>HEAD</tag>
   </scm>
 
