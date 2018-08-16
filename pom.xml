@@ -36,51 +36,55 @@
   </issueManagement>
 
   <scm>
-    <connection>scm:git:git://github.com/SonarQubeCommunity/sonar-l10n-ja.git</connection>
-    <developerConnection>scm:git:git@github.com:SonarQubeCommunity/sonar-l10n-ja.git</developerConnection>
     <url>https://github.com/SonarQubeCommunity/sonar-l10n-ja</url>
+    <connection>scm:git:https://github.com/SonarQubeCommunity/sonar-l10n-ja.git</connection>
+    <developerConnection>scm:git:https://github.com/SonarQubeCommunity/sonar-l10n-ja.git</developerConnection>
+<!--    <developerConnection>scm:git:git@github.com:SonarQubeCommunity/sonar-l10n-ja.git</developerConnection>
+-->
     <tag>HEAD</tag>
   </scm>
 
   <properties>
     <sonar.pluginClass>org.sonar.plugins.l10n.JapanesePackPlugin</sonar.pluginClass>
-    <sonar.version>3.5</sonar.version>
+    <sonar.version>6.7.5</sonar.version>
     <sonar-core-plugin.version>3.5</sonar-core-plugin.version>
-    <sonar-findbugs-plugin.version>3.3.2</sonar-findbugs-plugin.version>
-    <sonar-l10n-en-plugin.version>3.5</sonar-l10n-en-plugin.version>
-    <sonar-squid-java-plugin.version>1.2</sonar-squid-java-plugin.version>
+    <sonar-findbugs-plugin.version>3.3</sonar-findbugs-plugin.version>
+<!--    <sonar-l10n-en-plugin.version>3.5</sonar-l10n-en-plugin.version>
+    <sonar-squid-java-plugin.version>2.6.1</sonar-squid-java-plugin.version>
+-->
     <license.owner>Yoshiyuki NISHINAKA</license.owner>
     <license.mailto>yoshiyuki.nishinaka@gmail.com</license.mailto>
   </properties>
 
   <dependencies>
     <dependency>
-      <groupId>org.codehaus.sonar</groupId>
+      <groupId>org.sonarsource.sonarqube</groupId>
       <artifactId>sonar-plugin-api</artifactId>
       <version>${sonar.version}</version>
+	  <scope>provided</scope>
     </dependency>
-
+ 
     <dependency>
-      <groupId>org.codehaus.sonar</groupId>
+      <groupId>org.sonarsource.sonarqube</groupId>
       <artifactId>sonar-testing-harness</artifactId>
       <version>${sonar.version}</version>
       <scope>test</scope>
     </dependency>
-
+ 
     <dependency>
-      <groupId>org.codehaus.sonar.plugins</groupId>
-      <artifactId>sonar-core-plugin</artifactId>
-      <version>${sonar-core-plugin.version}</version>
+      <groupId>org.sonarsource.sonarqube</groupId>
+      <artifactId>sonar-core</artifactId>
+      <version>${sonar.version}</version>
       <scope>test</scope>
     </dependency>
 
     <dependency>
-      <groupId>org.codehaus.sonar.plugins</groupId>
+      <groupId>org.sonarsource.sonar-findbugs-plugin</groupId>
       <artifactId>sonar-findbugs-plugin</artifactId>
       <version>${sonar-findbugs-plugin.version}</version>
       <scope>test</scope>
     </dependency>
-
+<!--
     <dependency>
       <groupId>org.codehaus.sonar.plugins</groupId>
       <artifactId>sonar-l10n-en-plugin</artifactId>
@@ -89,12 +93,13 @@
     </dependency>
 
     <dependency>
-      <groupId>org.codehaus.sonar-plugins.java</groupId>
-      <artifactId>sonar-squid-java-plugin</artifactId>
+      <groupId>org.sonarsource.sonarqube.sslr-squid-bridge</groupId>
+      <artifactId>sslr-squid-bridge</artifactId>
       <version>${sonar-squid-java-plugin.version}</version>
       <scope>test</scope>
     </dependency>
-  </dependencies>
+-->
+	</dependencies>
 
   <developers>
     <developer>
@@ -106,8 +111,9 @@
   <build>
     <plugins>
       <plugin>
-        <groupId>org.codehaus.sonar</groupId>
+        <groupId>org.sonarsource.sonar-packaging-maven-plugin</groupId>
         <artifactId>sonar-packaging-maven-plugin</artifactId>
+		<version>1.15</version>
         <extensions>true</extensions>
         <configuration>
           <basePlugin>l10nen</basePlugin>
@@ -119,6 +125,7 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>native2ascii-maven-plugin</artifactId>
+		<version>1.0-beta-1</version>
         <executions>
           <execution>
             <goals>
