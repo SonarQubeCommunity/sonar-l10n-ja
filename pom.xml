@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.codehaus.sonar-plugins</groupId>
+    <groupId>org.sonarsource.parent</groupId>
     <artifactId>parent</artifactId>
-    <version>16</version>
+    <version>59.0.29</version>
   </parent>
 
-  <groupId>org.codehaus.sonar-plugins.l10n</groupId>
+  <groupId>org.sonarqube.l10n.ja</groupId>
   <artifactId>sonar-l10n-ja-plugin</artifactId>
-  <version>1.4-SNAPSHOT</version>
+  <version>8.9-SNAPSHOT</version>
   <packaging>sonar-plugin</packaging>
 
   <name>L10n :: Japanese Pack</name>
@@ -19,7 +21,7 @@
   <inceptionYear>2012</inceptionYear>
   <organization>
     <name>Motley Reservoir</name>
-	<url>http://www.motr.jp/</url>
+    <url>http://www.motr.jp/</url>
   </organization>
 
   <licenses>
@@ -44,47 +46,48 @@
 
   <properties>
     <sonar.pluginClass>org.sonar.plugins.l10n.JapanesePackPlugin</sonar.pluginClass>
-    <sonar.version>3.5</sonar.version>
-    <sonar-core-plugin.version>3.5</sonar-core-plugin.version>
-    <sonar-findbugs-plugin.version>3.3.2</sonar-findbugs-plugin.version>
-    <sonar-l10n-en-plugin.version>3.5</sonar-l10n-en-plugin.version>
-    <sonar-squid-java-plugin.version>1.2</sonar-squid-java-plugin.version>
+    <sonar.version>8.9.2.46101</sonar.version>
+    <junit.version>4.13.2</junit.version>
+    <sonar-findbugs-plugin.version>3.2</sonar-findbugs-plugin.version>
+    <sonar-squid-java-plugin.version>2.3</sonar-squid-java-plugin.version>
     <license.owner>Yoshiyuki NISHINAKA</license.owner>
     <license.mailto>yoshiyuki.nishinaka@gmail.com</license.mailto>
   </properties>
 
   <dependencies>
     <dependency>
-      <groupId>org.codehaus.sonar</groupId>
+      <groupId>org.sonarsource.sonarqube</groupId>
       <artifactId>sonar-plugin-api</artifactId>
       <version>${sonar.version}</version>
+      <scope>provided</scope>
     </dependency>
 
     <dependency>
-      <groupId>org.codehaus.sonar</groupId>
+      <groupId>org.sonarsource.sonarqube</groupId>
       <artifactId>sonar-testing-harness</artifactId>
       <version>${sonar.version}</version>
       <scope>test</scope>
     </dependency>
 
     <dependency>
-      <groupId>org.codehaus.sonar.plugins</groupId>
-      <artifactId>sonar-core-plugin</artifactId>
-      <version>${sonar-core-plugin.version}</version>
+      <groupId>org.sonarsource.sonarqube</groupId>
+      <artifactId>sonar-core</artifactId>
+      <version>${sonar.version}</version>
       <scope>test</scope>
     </dependency>
 
     <dependency>
-      <groupId>org.codehaus.sonar.plugins</groupId>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.codehaus.sonar-plugins.java</groupId>
       <artifactId>sonar-findbugs-plugin</artifactId>
       <version>${sonar-findbugs-plugin.version}</version>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.codehaus.sonar.plugins</groupId>
-      <artifactId>sonar-l10n-en-plugin</artifactId>
-      <version>${sonar-l10n-en-plugin.version}</version>
+      <type>sonar-plugin</type>
       <scope>test</scope>
     </dependency>
 
@@ -104,30 +107,64 @@
   </developers>
 
   <build>
-    <plugins>
-      <plugin>
-        <groupId>org.codehaus.sonar</groupId>
-        <artifactId>sonar-packaging-maven-plugin</artifactId>
-        <extensions>true</extensions>
-        <configuration>
-          <basePlugin>l10nen</basePlugin>
-          <pluginName>Japanese Pack</pluginName>
-          <skipDependenciesPackaging>true</skipDependenciesPackaging>
-        </configuration>
-      </plugin>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.sonarsource.sonar-packaging-maven-plugin</groupId>
+          <artifactId>sonar-packaging-maven-plugin</artifactId>
+          <extensions>true</extensions>
+          <configuration>
+            <basePlugin>l10nen</basePlugin>
+            <pluginName>Japanese Pack</pluginName>
+            <skipDependenciesPackaging>true</skipDependenciesPackaging>
+          </configuration>
+        </plugin>
 
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>native2ascii-maven-plugin</artifactId>
-        <executions>
-          <execution>
-            <goals>
-              <goal>native2ascii</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>native2ascii-maven-plugin</artifactId>
+          <executions>
+            <execution>
+              <goals>
+                <goal>native2ascii</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+        <!--This plugin's configuration is used to store Eclipse m2e settings 
+          only. It has no influence on the Maven build itself. -->
+        <plugin>
+          <groupId>org.eclipse.m2e</groupId>
+          <artifactId>lifecycle-mapping</artifactId>
+          <version>1.0.0</version>
+          <configuration>
+            <lifecycleMappingMetadata>
+              <pluginExecutions>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>
+                      com.github.genthaler
+                    </groupId>
+                    <artifactId>
+                      beanshell-maven-plugin
+                    </artifactId>
+                    <versionRange>
+                      [1.4,)
+                    </versionRange>
+                    <goals>
+                      <goal>run</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <ignore></ignore>
+                  </action>
+                </pluginExecution>
+              </pluginExecutions>
+            </lifecycleMappingMetadata>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
   </build>
 
 </project>
