@@ -21,6 +21,3 @@ Download
 
 Use Update Center or download the plugin into the directory `$SONAR_HOME/extensions/plugins/` then restart the server.
 
-### SNAPSHOT
-+ [http://repository-sonarplugins.forge.cloudbees.com/snapshot/org/codehaus/sonar-plugins/l10n/sonar-l10n-ja-plugin/]
-(http://repository-sonarplugins.forge.cloudbees.com/snapshot/org/codehaus/sonar-plugins/l10n/sonar-l10n-ja-plugin/)
